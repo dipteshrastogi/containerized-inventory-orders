@@ -23,32 +23,37 @@ Production-ready assessment project with a React frontend, FastAPI backend API, 
 
 ```text
 .
-├── backend
-│   ├── app
-│   │   ├── config.py
-│   │   ├── database.py
-│   │   ├── main.py
-│   │   ├── models.py
-│   │   └── schemas.py
-│   ├── Dockerfile
-│   └── requirements.txt
-├── frontend
-│   ├── src
-│   │   ├── main.jsx
-│   │   └── styles.css
-│   ├── Dockerfile
-│   ├── nginx.conf
-│   └── package.json
-├── docker-compose.yml
-└── .env.example
+|-- backend
+|   |-- app
+|   |   |-- config.py
+|   |   |-- database.py
+|   |   |-- main.py
+|   |   |-- models.py
+|   |   `-- schemas.py
+|   |-- Dockerfile
+|   `-- requirements.txt
+|-- frontend
+|   |-- src
+|   |   |-- main.jsx
+|   |   `-- styles.css
+|   |-- Dockerfile
+|   |-- nginx.conf
+|   `-- package.json
+|-- docker-compose.yml
+`-- .env.example
 ```
 
 ## Run Locally With Docker
 
-1. Copy the environment example:
+1. Create a root `.env` file with these local development values:
 
-```bash
-cp .env.example .env
+```env
+POSTGRES_DB=inventory_db
+POSTGRES_USER=inventory_user
+POSTGRES_PASSWORD=change_me
+DATABASE_URL=postgresql+psycopg2://inventory_user:change_me@db:5432/inventory_db
+FRONTEND_ORIGIN=http://localhost:3000
+VITE_API_BASE_URL=http://localhost:8000
 ```
 
 2. Start all services:
